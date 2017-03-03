@@ -1,5 +1,7 @@
 package ysn.exampleloginmvp;
 
+import android.text.TextUtils;
+
 /**
  * Created by root on 21/02/17.
  */
@@ -18,20 +20,18 @@ public class MainPresenter implements Presenter<MainView> {
         mainView = null;
     }
 
-    public void onValidationError(String message) {
-        mainView.onValidationError(message);
-    }
-
     public void onLogin(String username, String password) {
-        mainView.onLogin(username, password);
-    }
-
-    public void onLoginSuccess() {
-        mainView.onLoginSuccess();
-    }
-
-    public void onLoginFail() {
-        mainView.onLoginFail();
+        if (TextUtils.isEmpty(username)) {
+            mainView.onValidationError("Username is empty!");
+        } else if (TextUtils.isEmpty(password)) {
+            mainView.onValidationError("Password is empty!");
+        } else {
+            if (username.equals("admin") && password.equals("admin")) {
+                mainView.onLoginSuccess();
+            } else {
+                mainView.onLoginFail();
+            }
+        }
     }
 
 }

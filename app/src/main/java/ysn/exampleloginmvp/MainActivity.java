@@ -54,21 +54,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
     }
 
     @Override
-    public void onLogin(String username, String password) {
-        if (username.isEmpty()) {
-            mainPresenter.onValidationError("Username masih kosong");
-        } else if (password.isEmpty()) {
-            mainPresenter.onValidationError("Password masih kosong");
-        } else {
-            if (username.equals("admin") && password.equals("admin")) {
-                mainPresenter.onLoginSuccess();
-            } else {
-                mainPresenter.onLoginFail();
-            }
-        }
-    }
-
-    @Override
     public void onLoginSuccess() {
         Toast.makeText(this, "Login success", Toast.LENGTH_LONG)
                 .show();

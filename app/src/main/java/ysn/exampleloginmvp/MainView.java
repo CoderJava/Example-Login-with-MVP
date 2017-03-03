@@ -8,8 +8,6 @@ public interface MainView extends View {
 
     void onValidationError(String message);
 
-    void onLogin(String username, String password);
-
     void onLoginSuccess();
 
     void onLoginFail();
