@@ -8,7 +8,7 @@ import ysn.exampleloginmvp.views.base.Presenter;
  * Created by root on 21/02/17.
  */
 
-public class MainActivityPresenter implements Presenter<MainActivityView> {
+class MainActivityPresenter implements Presenter<MainActivityView> {
 
     private MainActivityView mainActivityView;
 
